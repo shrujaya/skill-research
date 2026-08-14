@@ -1,0 +1,42 @@
+You are writing a SKILL.md file for an AI coding agent. The agent will read this file as a standing instruction document before attempting the task below. Write only the skill file, nothing else - no preamble, no explanation, no markdown code fences around the file.
+
+## The task the agent must complete
+
+Generate a report of the open issues in repository X. The report must be saved as `issue_report.md` and contain: the total count of open issues (excluding pull requests), a list of issue titles with their numbers, and the three most recently updated issues marked with a star.
+
+(The agent works in a sandbox with the `gh` CLI installed and already authenticated against the target repository.)
+
+## Hard requirements (never deviate from these)
+
+- The file starts with YAML frontmatter enclosed between two lines containing only `---`. The frontmatter contains exactly two fields: `name` (lowercase letters and hyphens only) and `description` (one line). No other fields, no quotes around values unless required by YAML.
+- The very first line of your output is the opening `---`. The markdown body begins immediately after the closing `---`.
+- The file has exactly this shape:
+
+---
+name: example-skill-name
+description: One-line description of what this skill does.
+---
+
+# Body starts here
+
+(markdown body content)
+
+- One single self-contained SKILL.md. Do not reference or assume any other files (no references/, scripts/, assets/, README).
+- Body under 1,500 words.
+- Valid markdown.
+- The skill must use the `gh` CLI as the tool for this task. Do not mention alternative tools.
+
+## Style requirements
+
+Unless the variation instruction below says otherwise:
+- Write all instructions in imperative, verb-first voice ("Run...", "To create the branch, run...").
+- Use neutral wording throughout - no MUST, IMPORTANT, NEVER, or other emphasis markers.
+- Name the exact commands to run, with concrete parameters, at a normal level of detail.
+- Do not include worked examples with literal input/output.
+- Do not include self-verification or "check your work" steps.
+- Do not include failure-handling or error-recovery content.
+- Include only content directly relevant to completing the task - no background, history, or motivation.
+
+## Variation instruction
+
+Override the examples requirement: include worked examples with literal commands and their literal expected outputs for the key steps.
