@@ -1,0 +1,84 @@
+{
+  "task1-git-clean": {
+    "image": "task1-git",
+    "context_dir": "containers/task1-git",
+    "env": [
+      "GH_TOKEN"
+    ],
+    "env_literal": {},
+    "mounts": {},
+    "network": "bridge",
+    "workdir_deliverables": [
+      "/workspace/issue_report.md"
+    ],
+    "task_prompt": "Target repository: shrujaya/test-repo. Complete the task described in your skill file.",
+    "workdir": "/workspace"
+  },
+  "task1-git-broken": {
+    "image": "task1-git",
+    "context_dir": "containers/task1-git",
+    "env": [],
+    "env_literal": {
+      "GH_TOKEN": "revoked_or_garbage"
+    },
+    "mounts": {},
+    "network": "bridge",
+    "workdir_deliverables": [
+      "/workspace/issue_report.md"
+    ],
+    "task_prompt": "Target repository: shrujaya/test-repo. Complete the task described in your skill file.",
+    "workdir": "/workspace"
+  },
+  "task2-data-clean": {
+    "image": "task2-data",
+    "context_dir": "containers/task2-data",
+    "env": [],
+    "mounts": {},
+    "network": "none",
+    "workdir_deliverables": [
+      "/workspace/sales.db",
+      "/workspace/summary.csv"
+    ],
+    "task_prompt": "Complete the task described in your skill file.",
+    "workdir": "/workspace"
+  },
+  "task2-data-broken": {
+    "image": "task2-data",
+    "context_dir": "containers/task2-data",
+    "env": [],
+    "mounts": {
+      "orders_broken.csv": "/workspace/orders.csv"
+    },
+    "network": "none",
+    "workdir_deliverables": [
+      "/workspace/sales.db",
+      "/workspace/summary.csv"
+    ],
+    "task_prompt": "Complete the task described in your skill file.",
+    "workdir": "/workspace"
+  },
+  "task3-filesystem-clean": {
+    "image": "task3-filesystem-clean",
+    "context_dir": "containers/task3-filesystem-clean",
+    "env": [],
+    "mounts": {},
+    "network": "none",
+    "workdir_deliverables": [
+      "/home/agent/inbox"
+    ],
+    "task_prompt": "Complete the task described in your skill file.",
+    "workdir": "/home/agent"
+  },
+  "task3-filesystem-broken": {
+    "image": "task3-filesystem-broken",
+    "context_dir": "containers/task3-filesystem-broken",
+    "env": [],
+    "mounts": {},
+    "network": "none",
+    "workdir_deliverables": [
+      "/home/agent/inbox"
+    ],
+    "task_prompt": "Complete the task described in your skill file.",
+    "workdir": "/home/agent"
+  }
+}
